@@ -1,4 +1,4 @@
-# IHooverIHoover 
+# IHoover
 Bonsoir je m'appelle high hover et je suis l'aspirateur du futur.
 ## Comment je fonctionne ?
 D'abord donnez-moi la dimension de la pièce,
