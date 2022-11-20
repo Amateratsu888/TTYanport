@@ -1,17 +1,27 @@
 import { EInstruction, EWay, IGrillDimension, IHoover } from "./type";
 
 
-/**
+/*
  * Declaration of variable isBrock which turn to true when the hoover reach the limite of the room 
  */
 var isBroke: boolean = false;
+var isPure: boolean = false;
+var isOverSize: boolean = false;
 
 
-/**
+/*
  * Main function which get as params the size of the room, the initial position & way of the hoover & the instruction 
  */
  export function iHoover(dimesion: IGrillDimension, hoover: IHoover, instruction: Array<'A'| 'D' | 'G'>): void {
-    /**
+     /*
+  * we return a error message if the the the initial hoover's position exceeds the dimension of grill
+  */
+     if(isOverSize) return console.log('le hoover depassent la taille de la chambre');
+     /*
+ * we return a error message if the the instructions includes a letter different of A D G 
+ */
+if(isPure) return console.log('les instructions  doivent comporter que les lettres tel que  A, D ou G ');
+    /*
      * use a loop to process instruction by instruction
      */
     for (let i = 0; i <= instruction.length - 1; i++) {
@@ -79,17 +89,22 @@ var isBroke: boolean = false;
             }
         }
     }
-    /**
-     * finally we log the last position of the hoover if he do not hit a wall
-     */
-    if(isBroke) return
+
+/*
+ * we return a error message if the hit a wall 
+ */
+if(isBroke) return
+
+/*
+ * finally we log the last position of the hoover if he do not hit a wall
+ */
+return console.log('final position: ',hoover);
         
-    return console.log('final position: ',hoover);
 }
 
 
 
-/**
+/*
  * secondary function check if the hoover will hit a wall or not 
  */
 export function checkLimitReached(hoover: IHoover,dimension:IGrillDimension){
@@ -127,7 +142,9 @@ export function checkLimitReached(hoover: IHoover,dimension:IGrillDimension){
 }
 
 
-
+/*
+ * get input from the user and  ckeck if its on good format  
+*/
 export function getInput(answer: string){
     let arrAnswer: string[] = answer.split(' ')
     let dimension:IGrillDimension = {
@@ -139,8 +156,21 @@ export function getInput(answer: string){
       y: +arrAnswer[3],
       way:arrAnswer[4]
     }
+    if(hoover.x > dimension.x || hoover.y > dimension.y || hoover.x < 0|| hoover.y < 0 || dimension.x < 0 || dimension.y < 0) isOverSize = true;
+
     let instruction:Array<'A'| 'D' | 'G'>= arrAnswer[5].split('') as Array<'A'| 'D' | 'G'>
+    checkInstruction(instruction);
     
     return {dimension,hoover,instruction}
+    }
+/*
+ * check if the instruction contains a foreign character 
+ */
+    function checkInstruction(instruction: string[]){
+        instruction.forEach((element: string) => {
+            if( ['A','D','G'].includes(element)) isPure = false;
+            else isPure = true;
+        });
+        return instruction;
     }
 

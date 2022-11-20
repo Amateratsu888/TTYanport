@@ -1,4 +1,4 @@
-/**
+/*
  * Declaration of enumérations
  */
  export enum EWay {
@@ -12,7 +12,7 @@ export enum EInstruction {
     DROITE = 'D',
     AVANCE = 'A',
 }
-/**
+/*
  * Declaration of interfaces
  */
 
