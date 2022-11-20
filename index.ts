@@ -24,11 +24,5 @@ function read(): void {
         });
         
 }
-async function next(){
-    rl2.question("Voulez vous continuez? \n Tapez non ou oui \n",
-    function (answer2: string) {
-           response = answer2
-           rl2.close();
-      
-   });
-}
+
+
