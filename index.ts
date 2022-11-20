@@ -14,7 +14,6 @@ var rl2 = readline.createInterface({
     
 
 function read(): void {
-    do{
 
     rl.question("Bonjour je me nomme Ihoove l'aspirateur du futur.\n j'attend vos instructions\n ",
      function (answer) {
@@ -22,11 +21,8 @@ function read(): void {
             iHoover(dimension, hoover, instruction)
             rl.close();
        
-            next();
         });
         
-}while(response=== 'non')
-
 }
 async function next(){
     rl2.question("Voulez vous continuez? \n Tapez non ou oui \n",
