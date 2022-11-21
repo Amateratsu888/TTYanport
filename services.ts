@@ -2,7 +2,10 @@ import { EInstruction, EWay, IGrillDimension, IHoover } from "./type";
 
 
 /*
- * Declaration of variable isBrock which turn to true when the hoover reach the limite of the room 
+ * Declaration of variable 
+    *isBrock which turn to true when the hoover reach the limite of the room 
+    *isPure which turn to true when the when we have a instruction different of A D G
+    *isBrock which turn to true when the dimensions of hoover or grill cannot be determined
  */
 var isBroke: boolean = false;
 var isPure: boolean = false;
@@ -10,7 +13,7 @@ var isOverSize: boolean = false;
 
 
 /*
- * Main function which get as params the size of the room, the initial position & way of the hoover & the instruction 
+ * Main function which get as params the size of the room, the initial position & way of the hoover & the instructions 
  */
  export function iHoover(dimesion: IGrillDimension, hoover: IHoover, instruction: Array<'A'| 'D' | 'G'>): void {
      /*
